@@ -1,18 +1,57 @@
-export default function Logomark({ className = "h-8 w-8" }) {
+import { useId } from "react";
+
+// An abstract flowing ribbon that loops from a "spark" into a garment
+// collar-like curve — a wordless mark for a product about turning a prompt
+// into a fit. Two intertwined strokes on a frosted glass disc, with a
+// slow-traveling gradient so the mark itself feels "flowy".
+export default function Logomark({ className = "h-9 w-9", animated = true }) {
+  const id = useId();
+
   return (
     <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden="true">
       <defs>
-        <linearGradient id="p2f-logo-g" x1="4" y1="4" x2="60" y2="60" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="var(--color-accent)" />
-          <stop offset="1" stopColor="var(--color-accent-2)" />
+        <linearGradient id={`p2f-a-${id}`} x1="6" y1="10" x2="58" y2="54" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#38bdf8" />
+          <stop offset="55%" stopColor="#a78bfa" />
+          <stop offset="100%" stopColor="#f0abfc" />
+          {animated && (
+            <animateTransform
+              attributeName="gradientTransform"
+              type="translate"
+              values="-8 0; 8 0; -8 0"
+              dur="9s"
+              repeatCount="indefinite"
+            />
+          )}
         </linearGradient>
+        <linearGradient id={`p2f-b-${id}`} x1="58" y1="10" x2="6" y2="54" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#c4b5fd" />
+          <stop offset="100%" stopColor="#7dd3fc" />
+        </linearGradient>
+        <radialGradient id={`p2f-glass-${id}`} cx="30%" cy="25%" r="80%">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#eef3f7" stopOpacity="0.35" />
+        </radialGradient>
       </defs>
-      <rect width="64" height="64" rx="16" fill="var(--color-bg-soft)" stroke="var(--color-border)" />
+
+      <circle cx="32" cy="32" r="30" fill={`url(#p2f-glass-${id})`} stroke="rgba(255,255,255,0.8)" />
+
       <path
-        d="M20 46V18h11.5c5.79 0 9.5 3.4 9.5 8.6 0 5.2-3.71 8.6-9.5 8.6H26.4V46H20Zm6.4-15.9h4.4c2.87 0 4.53-1.36 4.53-3.9 0-2.53-1.66-3.9-4.53-3.9h-4.4v7.8Z"
-        fill="url(#p2f-logo-g)"
+        d="M13 40c3-10 8-17 15-17s10 9 17 9 8-4 10-9"
+        stroke={`url(#p2f-a-${id})`}
+        strokeWidth="4.5"
+        strokeLinecap="round"
+        fill="none"
       />
-      <path d="M46 14l1.8 4.6L52 20.4l-4.2 1.8L46 27l-1.8-4.8L40 20.4l4.2-1.8L46 14Z" fill="url(#p2f-logo-g)" />
+      <path
+        d="M15 21c5 2 8 7 8 12 0 6-4 10-4 15"
+        stroke={`url(#p2f-b-${id})`}
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.85"
+      />
+      <circle cx="45" cy="15" r="2.4" fill="#f0abfc" />
     </svg>
   );
 }

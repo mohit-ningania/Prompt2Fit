@@ -7,6 +7,7 @@ import PromptForm from "@/components/PromptForm";
 import EmptyState from "@/components/EmptyState";
 import ResultSkeleton from "@/components/ResultSkeleton";
 import OutfitResult from "@/components/OutfitResult";
+import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
 
 const HISTORY_KEY = "prompt2fit:history";
@@ -131,7 +132,7 @@ export default function HomePage() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mx-auto mt-6 max-w-2xl rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-center text-sm text-red-300"
+            className="mx-auto mt-6 max-w-2xl rounded-xl border border-rose-400/40 bg-rose-50/80 px-4 py-3 text-center text-sm text-rose-600"
           >
             {error}
           </motion.p>
@@ -150,6 +151,8 @@ export default function HomePage() {
           )}
           {!loading && !result && !error && <EmptyState />}
         </div>
+
+        <Gallery onPick={handleHistoryPick} disabled={loading} />
       </main>
 
       <Footer />

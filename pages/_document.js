@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <meta name="theme-color" content="#0b0b0d" />
+        <meta name="theme-color" content="#eef3f7" />
       </Head>
       <body className="antialiased">
         <Main />

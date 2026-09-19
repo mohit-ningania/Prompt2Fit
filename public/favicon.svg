@@ -1,11 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="p2f-g" x1="4" y1="4" x2="60" y2="60" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F2C879"/>
-      <stop offset="1" stop-color="#D9764F"/>
+    <linearGradient id="p2f-a" x1="6" y1="10" x2="58" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="55%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f0abfc"/>
     </linearGradient>
+    <linearGradient id="p2f-b" x1="58" y1="10" x2="6" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <radialGradient id="p2f-glass" cx="30%" cy="25%" r="80%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#eef3f7" stop-opacity="0.35"/>
+    </radialGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="#0B0B0D"/>
-  <path d="M20 46V18h11.5c5.79 0 9.5 3.4 9.5 8.6 0 5.2-3.71 8.6-9.5 8.6H26.4V46H20Zm6.4-15.9h4.4c2.87 0 4.53-1.36 4.53-3.9 0-2.53-1.66-3.9-4.53-3.9h-4.4v7.8Z" fill="url(#p2f-g)"/>
-  <path d="M46 14l1.8 4.6L52 20.4l-4.2 1.8L46 27l-1.8-4.8L40 20.4l4.2-1.8L46 14Z" fill="url(#p2f-g)"/>
+  <circle cx="32" cy="32" r="30" fill="url(#p2f-glass)" stroke="rgba(255,255,255,0.8)"/>
+  <path d="M13 40c3-10 8-17 15-17s10 9 17 9 8-4 10-9" stroke="url(#p2f-a)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <path d="M15 21c5 2 8 7 8 12 0 6-4 10-4 15" stroke="url(#p2f-b)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.85"/>
+  <circle cx="45" cy="15" r="2.4" fill="#f0abfc"/>
 </svg>
