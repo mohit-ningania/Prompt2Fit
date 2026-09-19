@@ -1,45 +1,59 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Prompt2Fit
 
-## Getting Started
+Prompt2Fit is an AI-powered stylist: describe a mood, occasion, or aesthetic in
+one sentence, and it returns a complete outfit — an item-by-item breakdown, a
+color palette, a styling tip, and an AI-generated lookbook visual.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The app runs fully in **demo mode** out of the box, cycling through a set of
+designed outfit concepts so it looks and works great with zero configuration.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+To enable **live AI generation** (GPT-powered styling + DALL·E lookbook
+images), copy `.env.example` to `.env.local` and add your key:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```bash
+cp .env.example .env.local
+# then edit .env.local
+OPENAI_API_KEY=sk-...
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Restart the dev server after adding the key.
 
-## Learn More
+## How it works
 
-To learn more about Next.js, take a look at the following resources:
+- `POST /api/generate` takes `{ prompt }` and:
+  - With an `OPENAI_API_KEY` set, asks `gpt-4o-mini` for a structured JSON
+    outfit concept (title, vibe, 4-color palette, itemized pieces, styling
+    tip), then asks `dall-e-3` for a matching lookbook image.
+  - Without a key — or if the live call fails for any reason — it falls back
+    to a curated demo concept (`lib/outfitLibrary.js`) chosen deterministically
+    from the prompt, so the UI never breaks or shows a dead end.
+- The frontend (`pages/index.js`) always renders a full result: a real photo
+  when one was generated, or an elegant palette-based "lookbook cover" built
+  from the outfit's own colors when it wasn't.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Next.js (Pages Router) · React 19 · Tailwind CSS v4 · Framer Motion ·
+Lucide icons · OpenAI SDK.
 
-## Deploy on Vercel
+## Project structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+components/   UI building blocks (form, result cards, background FX, etc.)
+lib/          Outfit concept library, prompt templates, demo fallback logic
+pages/        Routes + the /api/generate endpoint
+styles/       Design tokens and global styles
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
-=======
-# prompt2fit
-Prompt2Fit is an AI-powered web app that generates personalized clothing recommendations from natural language prompts. Built with React and GPT, it helps users find outfit ideas for any occasion based on their style, mood, or event needs.
->>>>>>> 67ad23507b77555fbed67d5a3a30df194b437055
+---
+
+© 2026 Prompt2Fit by Mohit Ningania
