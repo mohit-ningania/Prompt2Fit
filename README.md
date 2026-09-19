@@ -40,6 +40,15 @@ Restart the dev server after adding the key.
   when one was generated, or an elegant palette-based "lookbook cover" built
   from the outfit's own colors when it wasn't.
 
+## Design
+
+The theme (`styles/globals.css`) uses Indreva's brand palette — Chrome
+Silver, Platinum White, Ice Blue, Deep Blue-Grey, Steel Grey, Slate Blue,
+Charcoal — for a cool, muted "metal, stone, and sky" look. The background
+(`components/BackgroundFX.js`) is a looping drifting-clouds video
+(`public/video/flow-bg.mp4`) over a matching gradient mesh, so the page still
+looks intentional if a browser blocks video autoplay.
+
 ## Stack
 
 Next.js (Pages Router) · React 19 · Tailwind CSS v4 · Framer Motion ·

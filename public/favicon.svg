@@ -1,21 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="p2f-a" x1="6" y1="10" x2="58" y2="54" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="55%" stop-color="#a78bfa"/>
-      <stop offset="100%" stop-color="#f0abfc"/>
+    <linearGradient id="p2f-badge" x1="4" y1="4" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#dfe3e7"/>
     </linearGradient>
-    <linearGradient id="p2f-b" x1="58" y1="10" x2="6" y2="54" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#c4b5fd"/>
-      <stop offset="100%" stop-color="#7dd3fc"/>
+    <linearGradient id="p2f-letter" x1="18" y1="12" x2="46" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2e3a46"/>
+      <stop offset="55%" stop-color="#5c7285"/>
+      <stop offset="100%" stop-color="#a9c6da"/>
     </linearGradient>
-    <radialGradient id="p2f-glass" cx="30%" cy="25%" r="80%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#eef3f7" stop-opacity="0.35"/>
-    </radialGradient>
+    <linearGradient id="p2f-swoosh" x1="14" y1="0" x2="50" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a9c6da" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#a9c6da"/>
+      <stop offset="100%" stop-color="#5c7285"/>
+    </linearGradient>
   </defs>
-  <circle cx="32" cy="32" r="30" fill="url(#p2f-glass)" stroke="rgba(255,255,255,0.8)"/>
-  <path d="M13 40c3-10 8-17 15-17s10 9 17 9 8-4 10-9" stroke="url(#p2f-a)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-  <path d="M15 21c5 2 8 7 8 12 0 6-4 10-4 15" stroke="url(#p2f-b)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.85"/>
-  <circle cx="45" cy="15" r="2.4" fill="#f0abfc"/>
+  <rect x="1" y="1" width="62" height="62" rx="18" fill="url(#p2f-badge)" stroke="rgba(46,58,70,0.14)"/>
+  <text x="26" y="43" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="30" fill="url(#p2f-letter)">P</text>
+  <path d="M16 47c6 3.5 14 3.5 21-1" stroke="url(#p2f-swoosh)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <path d="M46 15v8M42 19h8" stroke="#a9c6da" stroke-width="2.4" stroke-linecap="round"/>
 </svg>

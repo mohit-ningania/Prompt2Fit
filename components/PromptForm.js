@@ -34,7 +34,7 @@ export default function PromptForm({ prompt, setPrompt, onSubmit, loading }) {
           <button
             type="submit"
             disabled={loading || !prompt.trim()}
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-2 px-5 py-2.5 text-sm font-medium text-[#0b2233] shadow-[0_8px_24px_-8px_rgba(56,189,248,0.6)] transition-transform enabled:hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-2 px-5 py-2.5 text-sm font-medium text-deep shadow-[0_8px_24px_-8px_rgba(46,58,70,0.45)] transition-transform enabled:hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {loading ? (
               <>

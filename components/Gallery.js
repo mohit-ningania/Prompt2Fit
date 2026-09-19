@@ -36,7 +36,7 @@ export default function Gallery({ onPick, disabled }) {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
             whileHover={{ y: -4 }}
-            className="glass group flex flex-col gap-4 rounded-2xl p-5 text-left transition-shadow hover:shadow-[0_20px_40px_-24px_rgba(56,189,248,0.5)] disabled:pointer-events-none disabled:opacity-40"
+            className="glass group flex flex-col gap-4 rounded-2xl p-5 text-left transition-shadow hover:shadow-[0_20px_40px_-24px_rgba(92,114,133,0.45)] disabled:pointer-events-none disabled:opacity-40"
           >
             <div className="flex gap-1.5">
               {concept.palette.map((hex) => (
