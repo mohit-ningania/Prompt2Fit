@@ -16,8 +16,8 @@ Open [http://localhost:3000](http://localhost:3000).
 The app runs fully in **demo mode** out of the box, cycling through a set of
 designed outfit concepts so it looks and works great with zero configuration.
 
-To enable **live AI generation** (GPT-powered styling + DALL·E lookbook
-images), copy `.env.example` to `.env.local` and add your key:
+To enable **live AI generation** (GPT-4.1-powered styling + gpt-image-1
+lookbook images), copy `.env.example` to `.env.local` and add your key:
 
 ```bash
 cp .env.example .env.local
@@ -30,9 +30,11 @@ Restart the dev server after adding the key.
 ## How it works
 
 - `POST /api/generate` takes `{ prompt }` and:
-  - With an `OPENAI_API_KEY` set, asks `gpt-4o-mini` for a structured JSON
+  - With an `OPENAI_API_KEY` set, asks `gpt-4.1` for a structured JSON
     outfit concept (title, vibe, 4-color palette, itemized pieces, styling
-    tip), then asks `dall-e-3` for a matching lookbook image.
+    tip), then asks `gpt-image-1` for a matching high-quality lookbook image
+    (returned as a data URI — `gpt-image-1` only returns base64 images, no
+    hosted URL).
   - Without a key — or if the live call fails for any reason — it falls back
     to a curated demo concept (`lib/outfitLibrary.js`) chosen deterministically
     from the prompt, so the UI never breaks or shows a dead end.

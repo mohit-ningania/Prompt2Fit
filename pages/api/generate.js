@@ -39,7 +39,7 @@ export default async function handler(req, res) {
 
   try {
     const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-4.1",
       temperature: 0.9,
       response_format: { type: "json_object" },
       messages: [
@@ -53,13 +53,14 @@ export default async function handler(req, res) {
     let imageUrl = null;
     try {
       const image = await client.images.generate({
-        model: "dall-e-3",
+        model: "gpt-image-1",
         prompt: buildImagePrompt(concept),
-        size: "1024x1792",
-        quality: "standard",
+        size: "1024x1536",
+        quality: "high",
         n: 1,
       });
-      imageUrl = image.data[0]?.url ?? null;
+      const b64 = image.data[0]?.b64_json;
+      imageUrl = b64 ? `data:image/png;base64,${b64}` : null;
     } catch (imageError) {
       console.error("Prompt2Fit image generation failed:", imageError);
     }
